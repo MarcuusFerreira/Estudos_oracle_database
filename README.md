@@ -1,0 +1,1 @@
+# Repositório utilizado para os estudos de Oracle Database
