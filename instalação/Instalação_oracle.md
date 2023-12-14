@@ -2,10 +2,10 @@
 
 ### Será necessário instalar algumas coisas:
 
-    - [Oracle Linux 7.9](URL "https://edelivery.oracle.com/osdc/faces/SoftwareDelivery")
-    - [Oracle VirtualBox](URL "https://www.virtualbox.org/wiki/Downloads")
-    - [MobaXTerm (Caso eseteja utulizando Windows)](URL "https://mobaxterm.mobatek.net/download.html")
-    - [ZIP dos binários do Oracle Database](URL "https://www.oracle.com/br/database/technologies/oracle19c-linux-downloads.html")
+- [Oracle Linux 7.9](URL "https://edelivery.oracle.com/osdc/faces/SoftwareDelivery")
+- [Oracle VirtualBox](URL "https://www.virtualbox.org/wiki/Downloads")
+- [MobaXTerm (Caso eseteja utulizando Windows)](URL "https://mobaxterm.mobatek.net/download.html")
+- [ZIP dos binários do Oracle Database](URL "https://www.oracle.com/br/database/technologies/oracle19c-linux-downloads.html")
 
 # Futuramente adicionar prints dos sites aqui
 
@@ -53,3 +53,37 @@ E por fim você pode agora definir a iso da VM que é a iso do Oracle Linux 7.9 
 <img src="../assets/instalação/setando_iso.png">
 
 Após toda essa configuração podemos dar um **OK** e iniciar a VM para assim começarmos a instalação e configuração do Oracle Linux e Oracle Database
+
+Após iniciar a VM vamos selecionar a opção *Install Oracle Linux*
+
+<img src="../assets/instalação/instalar_linux_opcao.png">
+
+Agora estamos no menu de instalação do *Oracle Linux*
+
+<img src="../assets/instalação/menu_instalacao.png">
+
+Vamos clicar em **DATE & TIME** e vamos mudar a região para **São Paulo**
+
+<img src="../assets/instalação/região.png">
+
+Agora vamos clicar em *Done* e retornar ao menu de instalação. Navegue para baixo no menu e vamos clicar em **INSTALATION DESTINATION** e dentro dessa aba clique em *Done*
+
+<img src="../assets/instalação/menu_network_instalation.png">
+
+<img src="../assets/instalação/instalation_destination.png">
+
+Agora vamos ativar a rede clicando em **NETWORK & HOSTNAME** ativando a rede e alterando o nome da maquina para **oracle19c.localgomans**, após fazer isso clique em **apply** e *Done*
+
+<img src="../assets/instalação/menu_final_network.png">
+
+<img src="../assets/instalação/ativando_network.png">
+
+E por fim só precisamos agora começar a instalação clicando em **BEGIN INSTALATION**
+
+<img src="../assets/instalação/begin_instalation.png">
+
+Enquanto esperamos a instalação do Oracle Linux podemos definir a senha do usuário **ROOT** clicando em *ROOT PASSWORD*
+
+<img src="../assets/instalação/tela_root_password.png">
+
+<img src="../assets/instalação/definir_senha_root.png">
