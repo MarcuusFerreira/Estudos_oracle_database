@@ -2,10 +2,10 @@
 
 ### Será necessário instalar algumas coisas:
 
-    - [Oracle Linux 7.9](https://edelivery.oracle.com/osdc/faces/SoftwareDelivery)
-    - [Oracle VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-    - [MobaXTerm (Caso eseteja utulizando Windows)](https://mobaxterm.mobatek.net/download.html)
-    - [ZIP dos binários do Oracle Database](https://www.oracle.com/br/database/technologies/oracle19c-linux-downloads.html)
+    - [Oracle Linux 7.9](URL "https://edelivery.oracle.com/osdc/faces/SoftwareDelivery")
+    - [Oracle VirtualBox](URL "https://www.virtualbox.org/wiki/Downloads")
+    - [MobaXTerm (Caso eseteja utulizando Windows)](URL "https://mobaxterm.mobatek.net/download.html")
+    - [ZIP dos binários do Oracle Database](URL "https://www.oracle.com/br/database/technologies/oracle19c-linux-downloads.html")
 
 # Futuramente adicionar prints dos sites aqui
 
@@ -14,8 +14,8 @@
 
 <img src="../assets/instalação/inicio_virtual_box.png">
 
-Agora podemos decidir um nome para a nossa VM, eu vou utilizar o nome **oracle19c**
-Tendo em vista que essa VM será responsavel por manter um servidor com o Oracle 19c instalado nela
+Agora podemos decidir um nome para a nossa VM, eu vou utilizar o nome **oracle19c**,
+tendo em vista que essa VM será responsavel por manter um servidor com o Oracle 19c instalado nela
 
 <img src="../assets/instalação/nome_vm.png">
 
@@ -32,3 +32,24 @@ Agora vamos definir um armazenamento de 60GB para o disco da VM
 
 <img src="../assets/instalação/tamanho_disco_vm.png">
 
+Agora vamos configurar a VM, podemos clicar em settings
+
+<img src="../assets/instalação/config.png">
+
+E vamos fazer algumas alterações, podemos ir na aba de *sistema* e desabilitar a opção de *disquete*
+
+<img src="../assets/instalação/desabilitar_disquete.png">
+
+Agora vamos em *audio* e vamos desabilitar o audio
+
+<img src="../assets/instalação/desabilitar_audio.png">
+
+É bem importante irmos na parte de *rede* e alterar a placa para o *modo bridge*
+
+<img src="../assets/instalação/placa_modo_bridge.png">
+
+E por fim você pode agora definir a iso da VM que é a iso do Oracle Linux 7.9 que baixamos anteriormente
+
+<img src="../assets/instalação/setando_iso.png">
+
+Após toda essa configuração podemos dar um **OK** e iniciar a VM para assim começarmos a instalação e configuração do Oracle Linux e Oracle Database
