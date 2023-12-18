@@ -4,7 +4,7 @@
 
 - [Oracle Linux 7.9](URL "https://edelivery.oracle.com/osdc/faces/SoftwareDelivery")
 - [Oracle VirtualBox](URL "https://www.virtualbox.org/wiki/Downloads")
-- [MobaXTerm (Caso eseteja utulizando Windows)](URL "https://mobaxterm.mobatek.net/download.html")
+- [MobaXTerm (Caso eseteja utilizando Windows)](URL "https://mobaxterm.mobatek.net/download.html")
 - [ZIP dos binários do Oracle Database](URL "https://www.oracle.com/br/database/technologies/oracle19c-linux-downloads.html")
 
 # Futuramente adicionar prints dos sites aqui
@@ -87,3 +87,77 @@ Enquanto esperamos a instalação do Oracle Linux podemos definir a senha do usu
 <img src="../assets/instalação/tela_root_password.png">
 
 <img src="../assets/instalação/definir_senha_root.png">
+
+Ao inserir a senha é só clicar em *Done* e aguardar a instalação ser realizada, após isso é só dar um reboot na VM
+
+Ao realizar o reboot da VM é necessário realizar o login nessa VM, o usuário é o **root** e a senha será a senha que informamos acima. Com o login relaizado precisamos agora rodas o seguinte comando:
+
+    - ip addr
+
+Esse comando nos vai listar o IP da nossa VM, é muito importante sabermos o IP da nossa VM para podermos fazer uma conexão **SSH**.
+
+Para fazer a conexão **SSH** no VM pelo linux precisamos rodar o comando
+
+    - ssh -X root@ip_da_sua_vm_aqui
+
+Comando para a instalação (Depois arrumo o arquivo e deixo ele organizado, no momento só quero armazenar todos os comandos):
+
+    vi /etc/hosts
+    cat /etc/hosts
+    yum -y install oracle-database-preinstall-19c
+    passwd oracle
+    vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
+    vi /etc/selinux/config
+    systemctl stop firewalld
+    systemctl disable firewalld
+    mkdir -p /u01/app/oracle/product/19.0.0/dbhome_1
+    mkdir -p /u02/oradata
+    chown -R oracle:oinstall /u01 /u02
+    chmod -R 775 /u01 /u02
+    cd /u01/app/oracle/product/19.0.0/dbhome_1/
+    unzip -oq LINUX.X64_193000_db_home.zip
+    ./runInstaller
+    ps aux | grep smon
+    . oraenv
+    orcl
+    sqlplus / as sysdba
+    desc v$instance
+
+oque são variaveis de ambiente, a variavel *env* contem varaias variaveis de ambiente do SO
+
+Instalação dos Sample Schemas, são schemas padroes para realização de testes da Oracle
+
+    cd $ORACLE_HOME/demo/schema/human_resorces
+    sqlplus / as sysdba
+    show pdbs
+    alter session set container=orclpdb;
+    alter user hr account unlock;
+    @hr_main.sql
+    hr-users-temp-/home/oracle
+
+## Configurações adicionais de Ambiente
+
+Verificar e subir o Listener
+
+    lsnrctl status
+    lsnrctl start
+    
+Alterar o nome de localhost para o nome da VM no arquivo listener
+
+    vi /u01/app/oracle/product/19.0.0/dbhome_1/network/admin/listener.ora
+    HOST = oracle19c.localdomain
+
+Alterar o nome de localhost para o nome da VM no arquivo tnsnames
+
+    vi /u01/app/oracle/product/19.0.0/dbhome_1/network/admin/tnsnames.ora
+    HOST = oracle19c.localdomain
+
+Visualizar o parametro de listener local
+
+    show parameter local_listener
+
+O nome desse parametro deve ser alterado do antigo para o Novo
+
+    ALTER SYSTEM SET LOCAL_LISTENER = 'LISTENER';
+    lnsrctl stop
+    lnsrctl start
